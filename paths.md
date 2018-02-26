@@ -2,7 +2,7 @@
 <a name="paths"></a>
 ## Paths
 
-<a name="getbyloginusingget"></a>
+<a name="getbyphonenumberandpasswordusingget"></a>
 ### Get Account by login
 ```
 GET /accounts
@@ -13,7 +13,8 @@ GET /accounts
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Query**|**login**  <br>*required*|login|string|
+|**Query**|**password**  <br>*required*|password|string|
+|**Query**|**phoneNumber**  <br>*required*|phoneNumber|string|
 
 
 #### Responses
@@ -24,6 +25,237 @@ GET /accounts
 |**401**|Unauthorized|No Content|
 |**403**|Forbidden|No Content|
 |**404**|Not Found|No Content|
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* account-controller
+
+
+<a name="confirmphoneusingpost"></a>
+### confirmPhone
+```
+POST /accounts/confirmPhone
+```
+
+
+#### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Query**|**code**  <br>*required*|code|string|
+|**Query**|**phone**  <br>*required*|phone|string|
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[ResponseEntity](#responseentity)|
+|**201**|Created|No Content|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Consumes
+
+* `application/json`
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* account-controller
+
+
+<a name="confirmresettingpasswordcodeusingpost"></a>
+### confirmResettingPasswordCode
+```
+POST /accounts/confirmResettingPasswordCode
+```
+
+
+#### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Query**|**code**  <br>*required*|code|string|
+|**Query**|**phone**  <br>*required*|phone|string|
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[ResponseEntity](#responseentity)|
+|**201**|Created|No Content|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Consumes
+
+* `application/json`
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* account-controller
+
+
+<a name="currentusingget"></a>
+### current
+```
+GET /accounts/current
+```
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[AccountDto](#accountdto)|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* account-controller
+
+
+<a name="registerusingpost"></a>
+### register
+```
+POST /accounts/register
+```
+
+
+#### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Body**|**accountDto**  <br>*required*|accountDto|[AccountDto](#accountdto)|
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[AccountDto](#accountdto)|
+|**201**|Created|No Content|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Consumes
+
+* `application/json`
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* account-controller
+
+
+<a name="resetpasswordusingpost"></a>
+### resetPassword
+```
+POST /accounts/resetPassword
+```
+
+
+#### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Query**|**code**  <br>*required*|code|string|
+|**Query**|**password**  <br>*required*|password|string|
+|**Query**|**phone**  <br>*required*|phone|string|
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[ResponseEntity](#responseentity)|
+|**201**|Created|No Content|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Consumes
+
+* `application/json`
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* account-controller
+
+
+<a name="sendconfirmationcodeusingpost"></a>
+### sendConfirmationCode
+```
+POST /accounts/sendConfirmationCode
+```
+
+
+#### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**Query**|**phone**  <br>*required*|phone|string|
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[SMSAuth](#smsauth)|
+|**201**|Created|No Content|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Consumes
+
+* `application/json`
 
 
 #### Produces
@@ -265,7 +497,7 @@ GET /decks/{id}/cards
 |Type|Name|Description|Schema|Default|
 |---|---|---|---|---|
 |**Path**|**id**  <br>*required*|Deck id|integer (int64)||
-|**Query**|**side**  <br>*optional*|Card side|enum (PUBLIC, PRIVATE)|`"PUBLIC"`|
+|**Query**|**side**  <br>*optional*|Card side|enum (FRONT, BACK)|`"FRONT"`|
 
 
 #### Responses
@@ -367,6 +599,46 @@ POST /schedules/book
 #### Tags
 
 * schedule-controller
+
+
+<a name="uploadusingpost"></a>
+### upload
+```
+POST /score/upload
+```
+
+
+#### Parameters
+
+|Type|Name|Description|Schema|
+|---|---|---|---|
+|**FormData**|**file**  <br>*required*|file|file|
+
+
+#### Responses
+
+|HTTP Code|Description|Schema|
+|---|---|---|
+|**200**|OK|[ResponseEntity](#responseentity)|
+|**201**|Created|No Content|
+|**401**|Unauthorized|No Content|
+|**403**|Forbidden|No Content|
+|**404**|Not Found|No Content|
+
+
+#### Consumes
+
+* `multipart/form-data`
+
+
+#### Produces
+
+* `*/*`
+
+
+#### Tags
+
+* provider-score-controller
 
 
 

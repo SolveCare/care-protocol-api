@@ -27,6 +27,7 @@ Api Documentation
 * card-controller : Card Controller
 * card-scheme-controller : Card Scheme Controller
 * deck-controller : Deck Controller
+* provider-score-controller : Provider Score Controller
 * schedule-controller : Schedule Controller
 
 
