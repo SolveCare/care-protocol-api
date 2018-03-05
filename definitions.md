@@ -10,11 +10,10 @@
 |**email**  <br>*optional*|string|
 |**id**  <br>*optional*|integer (int64)|
 |**name**  <br>*optional*|string|
-|**password**  <br>*optional*|string|
 |**phoneNumber**  <br>*optional*|string|
 |**roles**  <br>*optional*|< string > array|
 |**settings**  <br>*optional*|[AccountSettingsDto](#accountsettingsdto)|
-|**statuses**  <br>*optional*|< enum (ENABLED, DISABLED, EMAIL_CONFIRMATION_WAITING, PHONE_CONFIRMATION_WAITING) > array|
+|**statuses**  <br>*optional*|< enum (ENABLED, DISABLED, EMAIL_CONFIRMATION_WAITING, NEED_PHONE_CONFIRMATION) > array|
 |**surname**  <br>*optional*|string|
 
 
@@ -172,6 +171,26 @@ Represent card side structure
 |**totalPages**  <br>*optional*|integer (int32)|
 
 
+<a name="registrationaccountdto"></a>
+### RegistrationAccountDto
+
+|Name|Schema|
+|---|---|
+|**password**  <br>*optional*|string|
+|**phoneNumber**  <br>*optional*|string|
+|**smsCode**  <br>*optional*|string|
+
+
+<a name="resettingpassaccountdto"></a>
+### ResettingPassAccountDto
+
+|Name|Schema|
+|---|---|
+|**password**  <br>*optional*|string|
+|**phoneNumber**  <br>*optional*|string|
+|**smsCode**  <br>*optional*|string|
+
+
 <a name="responseentity"></a>
 ### ResponseEntity
 
@@ -180,18 +199,6 @@ Represent card side structure
 |**body**  <br>*optional*|object|
 |**statusCode**  <br>*optional*|enum (100, 101, 102, 103, 200, 201, 202, 203, 204, 205, 206, 207, 208, 226, 300, 301, 302, 303, 304, 305, 307, 308, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 426, 428, 429, 431, 451, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511)|
 |**statusCodeValue**  <br>*optional*|integer (int32)|
-
-
-<a name="smsauth"></a>
-### SMSAuth
-
-|Name|Schema|
-|---|---|
-|**createdAt**  <br>*optional*|string (date-time)|
-|**expiredAt**  <br>*optional*|string (date-time)|
-|**id**  <br>*optional*|integer (int64)|
-|**phoneNumber**  <br>*optional*|string|
-|**status**  <br>*optional*|enum (CODE_SENT, CODE_CONFIRMED)|
 
 
 <a name="scheduleslotdto"></a>

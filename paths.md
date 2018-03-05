@@ -2,41 +2,6 @@
 <a name="paths"></a>
 ## Paths
 
-<a name="getbyphonenumberandpasswordusingget"></a>
-### Get Account by login
-```
-GET /accounts
-```
-
-
-#### Parameters
-
-|Type|Name|Description|Schema|
-|---|---|---|---|
-|**Query**|**password**  <br>*required*|password|string|
-|**Query**|**phoneNumber**  <br>*required*|phoneNumber|string|
-
-
-#### Responses
-
-|HTTP Code|Description|Schema|
-|---|---|---|
-|**200**|OK|[AccountDto](#accountdto)|
-|**401**|Unauthorized|No Content|
-|**403**|Forbidden|No Content|
-|**404**|Not Found|No Content|
-
-
-#### Produces
-
-* `*/*`
-
-
-#### Tags
-
-* account-controller
-
-
 <a name="confirmphoneusingpost"></a>
 ### confirmPhone
 ```
@@ -56,48 +21,7 @@ POST /accounts/confirmPhone
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|OK|[ResponseEntity](#responseentity)|
-|**201**|Created|No Content|
-|**401**|Unauthorized|No Content|
-|**403**|Forbidden|No Content|
-|**404**|Not Found|No Content|
-
-
-#### Consumes
-
-* `application/json`
-
-
-#### Produces
-
-* `*/*`
-
-
-#### Tags
-
-* account-controller
-
-
-<a name="confirmresettingpasswordcodeusingpost"></a>
-### confirmResettingPasswordCode
-```
-POST /accounts/confirmResettingPasswordCode
-```
-
-
-#### Parameters
-
-|Type|Name|Description|Schema|
-|---|---|---|---|
-|**Query**|**code**  <br>*required*|code|string|
-|**Query**|**phone**  <br>*required*|phone|string|
-
-
-#### Responses
-
-|HTTP Code|Description|Schema|
-|---|---|---|
-|**200**|OK|[ResponseEntity](#responseentity)|
+|**200**|OK|No Content|
 |**201**|Created|No Content|
 |**401**|Unauthorized|No Content|
 |**403**|Forbidden|No Content|
@@ -157,15 +81,14 @@ POST /accounts/register
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Body**|**accountDto**  <br>*required*|accountDto|[AccountDto](#accountdto)|
+|**Body**|**dto**  <br>*required*|dto|[RegistrationAccountDto](#registrationaccountdto)|
 
 
 #### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|OK|[AccountDto](#accountdto)|
-|**201**|Created|No Content|
+|**201**|Created|[AccountDto](#accountdto)|
 |**401**|Unauthorized|No Content|
 |**403**|Forbidden|No Content|
 |**404**|Not Found|No Content|
@@ -197,16 +120,14 @@ POST /accounts/resetPassword
 
 |Type|Name|Description|Schema|
 |---|---|---|---|
-|**Query**|**code**  <br>*required*|code|string|
-|**Query**|**password**  <br>*required*|password|string|
-|**Query**|**phone**  <br>*required*|phone|string|
+|**Body**|**dto**  <br>*required*|dto|[ResettingPassAccountDto](#resettingpassaccountdto)|
 
 
 #### Responses
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|OK|[ResponseEntity](#responseentity)|
+|**200**|OK|No Content|
 |**201**|Created|No Content|
 |**401**|Unauthorized|No Content|
 |**403**|Forbidden|No Content|
@@ -228,10 +149,10 @@ POST /accounts/resetPassword
 * account-controller
 
 
-<a name="sendconfirmationcodeusingpost"></a>
+<a name="sendconfirmationcodeusingget"></a>
 ### sendConfirmationCode
 ```
-POST /accounts/sendConfirmationCode
+GET /accounts/sendConfirmationCode
 ```
 
 
@@ -246,16 +167,10 @@ POST /accounts/sendConfirmationCode
 
 |HTTP Code|Description|Schema|
 |---|---|---|
-|**200**|OK|[SMSAuth](#smsauth)|
-|**201**|Created|No Content|
+|**200**|OK|No Content|
 |**401**|Unauthorized|No Content|
 |**403**|Forbidden|No Content|
 |**404**|Not Found|No Content|
-
-
-#### Consumes
-
-* `application/json`
 
 
 #### Produces
@@ -604,7 +519,7 @@ POST /schedules/book
 <a name="uploadusingpost"></a>
 ### upload
 ```
-POST /score/upload
+POST /scores/upload
 ```
 
 
